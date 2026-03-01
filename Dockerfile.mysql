@@ -6,4 +6,4 @@ ENV MYSQL_USER=app_user
 ENV MYSQL_PASSWORD=1234
 
 EXPOSE 3306
-VOLUME /var/lib/mysq
+VOLUME /var/lib/mysql

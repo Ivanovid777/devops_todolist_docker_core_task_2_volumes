@@ -39,13 +39,16 @@ VOLUME /var/lib/mysq
 docker build -t <tag> -f Dockerfile.mysql .
 
 # 2. Run mysql container
-docker run --name <name> -v <path>>:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=<root_password> -d ivanoid777/mysql-local:2.0.0
+docker run --name <name> -v <path>:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=<root_password> -d ivanoid777/mysql-local:1.0.0
 
-# 3. Build image from Dockerfile
+# 3. Set up HOST in todolist/settings.py with IP of mysql container
+docker network inspect bridge
+
+# 4. Build image from Dockerfile
 docker build -t <tag> .
 
-# 4. Run app container 
+# 5. Run app container 
 docker run --name <name> -d -p <host_port>:<container_port> ivanoid777/todoapp:2.0.0
 
-# 3. Open in browser
+# 6. Open in browser
 http://127.0.0.1:<host_port>
