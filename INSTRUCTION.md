@@ -55,10 +55,10 @@ DATABASES = {
     }
 
 # 3. Build image from Dockerfile.mysql
-docker build -t <tag> -f Dockerfile.mysql .
+docker build -t mysql-local:1.0.0 -f Dockerfile.mysql .
 
 # 4. Run mysql container
-docker run --name <name> \
+docker run --name mysql-local \
 -v <path>:/var/lib/mysql \
 -e MYSQL_ROOT_PASSWORD=<root_password> \
 -d \
@@ -71,11 +71,11 @@ docker build -t todoapp:2.0.0 .
 
 # 6. Run app container 
 docker run \
---name todoapp:2.0.0 \
+--name todoapp \
 -d \
 -p <host_port>:<container_port> \
 --network <todo_net> \
-ivanoid777/todoapp:2.0.0
+todoapp:2.0.0
 
 # 7. Open in browser
 http://127.0.0.1:<host_port>
